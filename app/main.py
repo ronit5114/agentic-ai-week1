@@ -1,5 +1,5 @@
 from app.agent import run_agent
 
 if __name__ == "__main__":
-    goal = "Explain control flow in one sentence"
+    goal = "Explain difference between AI and ML?"
     run_agent(goal)
