@@ -2,8 +2,11 @@ def decide_next_step(memory: dict) -> str:
     if memory["completed"]:
         return "stop"
 
-    if len(memory["steps"]) == 0:
-        return "call_llm"
+    if "steps" not in memory:
+        memory["steps"] = 0
 
-    memory["completed"] = True
+    if memory ["steps"] < 2:
+        memory["steps"] +=1
+        return "call llm"
+
     return "stop"

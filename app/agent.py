@@ -13,9 +13,9 @@ def run_agent(goal: str):
 
         if step == "call_llm":
             response = call_llm(goal)
-            memory["steps"].append(response)
             print("LLM Response:", response)
 
-        elif step == "stop":
-            print("Agent stopped")
+        else:
             break
+    
+    print("Agent Finished")
