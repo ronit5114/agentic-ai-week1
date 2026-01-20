@@ -1,5 +1,6 @@
 from app.agent import run_agent
-
+ 
 if __name__ == "__main__":
-    goal = "Explain difference between AI and Artifical Agent?"
+    goal = "Explain why humor helps in communication"
     run_agent(goal)
+ 
