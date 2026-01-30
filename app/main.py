@@ -1,10 +1,11 @@
 from app.agent import run_agent
-
-def read_notice():
-    with open("notice.txt", "r") as file:
-        return file.read()
+import os
 
 if __name__ == "__main__":
-    notice_text = read_notice()
-    goal = f"Explain the following college notice in very simple language:\n\n{notice_text}"
+    # 🔴 DEMO RESET (IMPORTANT FOR CLASS)
+    if os.path.exists("agent_memory.json"):
+        os.remove("agent_memory.json")
+        print("[MAIN] Demo reset: old memory deleted")
+
+    goal = "Explain the Aurangabad college notice in simple words"
     run_agent(goal)

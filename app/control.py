@@ -1,8 +1,5 @@
 def decide_next_step(memory: dict) -> str:
-    print("\n[CONTROL] Current memory:", memory)
-
-    if memory["completed"]:
-        return "stop"
+    print("\n[CONTROL] Memory state:", memory)
 
     # Step 1: Get explanation from LLM
     if len(memory["steps"]) == 0:
