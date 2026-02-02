@@ -1,14 +1,14 @@
 def decide_next_step(memory: dict) -> str:
     print("\n[CONTROL] Memory state:", memory)
 
-    # Step 1: Get explanation from LLM
+    if memory["completed"]:
+        return "stop"
+
     if len(memory["steps"]) == 0:
-        return "call_llm"
+        return "call_llm"        # REASON → ACT (LLM)
 
-    # Step 2: Present explanation using tool
     if len(memory["steps"]) == 1:
-        return "use_tool"
+        return "observe"         # REASON → OBSERVE
 
-    # Step 3: Stop agent
     memory["completed"] = True
     return "stop"
