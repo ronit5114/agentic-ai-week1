@@ -5,10 +5,10 @@ def decide_next_step(memory: dict) -> str:
         return "stop"
 
     if len(memory["steps"]) == 0:
-        return "call_llm"        # REASON → ACT (LLM)
+        return "call_llm"        # 1st loop: REASON → ACT
 
-    if len(memory["steps"]) == 1:
-        return "observe"         # REASON → OBSERVE
+    if "observed" not in memory["steps"]:
+        return "observe"         # 2nd loop: OBSERVE
 
-    memory["completed"] = True
+    memory["completed"] = True  # Stop ONLY if observation happened
     return "stop"
