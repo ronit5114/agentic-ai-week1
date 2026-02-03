@@ -1,7 +1,8 @@
 def init_memory(goal: str) -> dict:
-    print("[MEMORY] Initializing fresh memory")
+    print("[MEMORY] Initializing shared memory")
     return {
         "goal": goal,
-        "steps": [],
+        "plan": [],        # REQUIRED for planner
+        "results": [],     # Executor writes here
         "completed": False
     }
