@@ -9,3 +9,11 @@ def executor_step(memory: dict, plan: str):
         answer = call_llm(memory["goal"], context)
         memory["results"].append(answer)
         print("\n[EXECUTOR] RESULT:\n", answer)
+
+    elif plan == "review_result":
+        print("\n[EXECUTOR] REVIEWING RESULT")
+        if memory["results"]:
+            print("[EXECUTOR] FINAL ANSWER:\n", memory["results"][-1])
+            memory["reviewed"] = True
+        else:
+            print("[EXECUTOR] No result to review")
